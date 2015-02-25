@@ -97,5 +97,23 @@ public class MiHashMap
         }
         return contains;
     }
+    
+    /**
+     * Devuelve true si el mapa contiene el valor dado.
+     * @param valor que se desea comprobar si esta contenido en algun registro del mapa
+     * @return true si el mapa contiene la valor dado
+     */
+    public boolean containsValue(int valor){
+        boolean contains = false;
+        //busqueda de el valor dado en el mapa
+        for(int index = 0; index < value.length && !contains; index++ )
+        {
+            //encontrado el valor dado
+            if (value[index] == valor){
+                contains = true;
+            }
+        }
+        return contains;
+    }
 
 }
