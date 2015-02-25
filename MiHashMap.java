@@ -122,6 +122,14 @@ public class MiHashMap
         return valor;
     }
 
+     /**
+     * vacía el mapa.
+     */
+    public void clear(){
+        key   = new String[0];
+        value = new int[0];
+    }
+    
     /**
      *  Devuelve true si el mapa contiene la clave dada.
      *  @param clave clave que se desea saber si esta contedia en algun registro del mapa
