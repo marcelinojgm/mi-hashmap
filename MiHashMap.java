@@ -165,5 +165,25 @@ public class MiHashMap
         }
         return contains;
     }
+    
+    /**
+     *  Devuelve el valor asociado con la clave especificada o -1 en caso de que la clave no exista.
+     *  @param clave clave del restro que se desea saber el valor
+     *  @return valor asociado con la clave especificada o -1 en caso de que la clave no exista.
+     */
+    public int get(String clave){
+        int valor = -1;
+        boolean contains = false;
+        //busqueda de la clave dada en el mapa
+        for(int index = 0; index < key.length && !contains; index++ )
+        {
+            //encontrado la clave dada
+            if (key[index] == clave){
+                contains = true;
+                valor = value[index];
+            }
+        }
+        return valor;
+    }
 
 }
