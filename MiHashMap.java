@@ -79,5 +79,23 @@ public class MiHashMap
     public int size(){
         return key.length;
     }
+    
+     /**
+     *  Devuelve true si el mapa contiene la clave dada.
+     *  @param clave clave que se desea saber si esta contedia en algun registro del mapa
+     *  @return  true si el mapa contiene la clave dada.
+     */
+    public boolean containsKey(String clave){
+        boolean contains = false;
+        //busqueda de la clave dada en el mapa
+        for(int index = 0; index < key.length && !contains; index++ )
+        {
+            //encontrado la clave dada
+            if (key[index] == clave){
+                contains = true;
+            }
+        }
+        return contains;
+    }
 
 }
