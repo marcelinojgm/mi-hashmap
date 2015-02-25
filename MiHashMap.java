@@ -71,16 +71,58 @@ public class MiHashMap
     public boolean isEmpty(){
         return key.length==0;
     }
-    
-     /**
+
+    /**
      *  devuelve el número de elementos del mapa.
      *  @return número de elementos del mapa
      */
     public int size(){
         return key.length;
     }
-    
-     /**
+
+    /**
+     *  elimina del mapa el elemento con la clave dada y devuelve su valor. 
+     *  Si no hay esa clave en el mapa devuelve -1.
+     *  @param clave clave del elemento que se desea eliminar.
+     *  @return valor de la clave asociada, si la clave no existe -1.
+     */
+    public int remove(String clave){
+        //valor asociado a la clave especificada, si esta no existe -1
+        int valor = -1;
+        //si la clave existe
+        if(containsKey(clave)){
+            //definicion de nuevo mapa
+            String[] newKey    = new String[key.length - 1];           
+            int[]    newValue  = new int[value.length  - 1];
+
+            //true el elemnto ha sido encontrado
+            //false el elemento no ha sido encontrado
+            boolean found = false;
+            for(int index = 0; index < key.length ; index++ )
+            {
+                //borradao del registro con clave especificada
+                if (key[index] == clave && !found){
+                    valor = value[index];
+                    found = true;
+                }
+                //guardado de los registros que estan antes del de borrado
+                else if(!found){
+                    newKey[index]   = key[index];
+                    newValue[index] = value[index];
+                }
+                //guardado de registros depues del registro borrado
+                else{
+                    newKey[index - 1]   = key[index];
+                    newValue[index - 1] = value[index];
+                }
+            }
+
+        }
+
+        return valor;
+    }
+
+    /**
      *  Devuelve true si el mapa contiene la clave dada.
      *  @param clave clave que se desea saber si esta contedia en algun registro del mapa
      *  @return  true si el mapa contiene la clave dada.
@@ -97,7 +139,7 @@ public class MiHashMap
         }
         return contains;
     }
-    
+
     /**
      * Devuelve true si el mapa contiene el valor dado.
      * @param valor que se desea comprobar si esta contenido en algun registro del mapa
