@@ -18,9 +18,8 @@ public class MiHashMap
         key   = new String[0];
         value = new int[0];
     }
-    
-    
-     /** 
+
+    /** 
      * Asocia el valor especificado con la clave especificada. 
      * Si la clave existía, entonces sobreescribe su valor
      * @param clave clave especificada
@@ -65,5 +64,12 @@ public class MiHashMap
         return oldValue;
     }
 
-    
+    /**
+     * devuelve true si el mapa no contiene elementos.
+     * @return true mapa vacio, false mapa no esta vacio
+     */
+    public boolean isEmpty(){
+        return key.length==0;
+    }
+
 }
